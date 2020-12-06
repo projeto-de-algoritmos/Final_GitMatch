@@ -155,7 +155,6 @@ function Home() {
                 <p>Bio: 
                    {user.bio}
                 </p>
-                <p>Curte: {user.technologys}</p>
               </footer>
                 
             <Buttons>
@@ -184,7 +183,6 @@ function Home() {
                 <p>Bio: 
                    {user.bio}
                 </p>
-                <p>Curte: {user.technologys}</p>
               </footer>
                 
             <Buttons>
@@ -209,7 +207,6 @@ function Home() {
               <img className="avatar" src={match.avatar} alt="avatar" />
               <strong>{match.name}</strong>
               <p>{match.bio}</p>
-              <p>{match.technologys}</p>
               <button type="button" onClick={() => setMatch(null)}>Fechar</button>  
             </Match>
           )  

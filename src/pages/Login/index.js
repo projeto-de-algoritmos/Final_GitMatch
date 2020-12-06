@@ -31,7 +31,7 @@ function Login() {
           value={username}
           onChange={ e => setUsername(e.target.value)}
         />
-        <button onClick={() => inversionCounter({users, count: 0}, username)} type="submit"> Entrar </button>
+        <button type="submit"> Entrar </button>
         <Link to="/signUp">
           Criar conta
         </Link>

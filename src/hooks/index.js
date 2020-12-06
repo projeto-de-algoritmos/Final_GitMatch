@@ -45,12 +45,15 @@ const GlobalsProvider= ({ children }) => {
   const inversionCounter = useCallback((currentUser) => {
     const copyUsers = [...users];
     // Encontra as informações user logado
+    console.log(currentUser);
     let currentUserInfo;
     for (let index = 0; index < copyUsers.length; index++) {
       if(copyUsers[index].username === currentUser) {
         currentUserInfo = copyUsers[index];
       }
     }
+
+    console.log(currentUserInfo)
 
     if (!currentUserInfo) {
       return false;
@@ -62,15 +65,20 @@ const GlobalsProvider= ({ children }) => {
       baseOrder[x.toString()] = currentUserInfo.technologys[x-1];
     }
 
+    console.log(baseOrder)
+
     let otherUserResult;
     let otherUserArray = [];
 
     let allUsersResult = {};
 
+    console.log(copyUsers);
+    let finalResult;
     // Cria o array dos outros usuarios de acordo com o array base 
     for (let index = 0; index < copyUsers.length; index++) {
       // Para todo usuario que não for o usuario logado
       if(copyUsers[index].username !== currentUser) {
+        console.log(copyUsers[index].username);
         // Zera o array para cada usuario
         otherUserArray = [];
         // Cria o array de acordo com o base
@@ -78,18 +86,28 @@ const GlobalsProvider= ({ children }) => {
           let newOrder = Object.keys(baseOrder).find(key => baseOrder[key] === copyUsers[index].technologys[x-1]);
           otherUserArray.push(newOrder)
         }
+        console.log(otherUserArray);
         otherUserResult = mergeSort({otherUserArray, count: 0});
+        
+        if (allUsersResult[`${otherUserResult.count}`]) {
+
+          otherUserResult.count = otherUserResult.count+1
+        }
+
+        console.log(otherUserResult.count.toString())
+
         allUsersResult[otherUserResult.count.toString()] = copyUsers[index].username;
       }
 
-      let finalResult = [];
+      finalResult = [];
 
       Object.keys(allUsersResult).forEach((key) => {
         const orderedUser = copyUsers.find(user => user.username === allUsersResult[key]);
         finalResult.push(orderedUser)
-      })
-      return finalResult;
+      })      
     }
+    console.log(finalResult)
+    return finalResult;
   },[users, mergeSort])
   
   return (
