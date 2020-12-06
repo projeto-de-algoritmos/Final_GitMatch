@@ -8,12 +8,11 @@ import { Container } from './styles';
 
 function Login() {
   const [username, setUsername] = useState('');
-  const { users, setUsers, inversionCounter } = useGlobals();
+  const { users, setUsers } = useGlobals();
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(JSON.stringify(users, null, 2))
     const userExists = users.find( user => user.username === username);
 
     if (!userExists) return toast.error('Usuário não encontrado!');
