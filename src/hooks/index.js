@@ -66,10 +66,10 @@ const GlobalsProvider= ({ children }) => {
     let otherUserArray = [];
 
     let allUsersResult = {};
-
     let finalResult = [];
+
     // Cria o array dos outros usuarios de acordo com o array base 
-    for (let index = 0; index < copyUsers.length; index++) {
+      copyUsers.forEach((_, index) => {
       // Para todo usuario que não for o usuario logado
       if(copyUsers[index].username !== currentUser) {
         // Zera o array para cada usuario
@@ -89,14 +89,16 @@ const GlobalsProvider= ({ children }) => {
       }
 
       // clean array
-      finalResult.forEach(() => finalResult.pop());
+      finalResult = [];
 
       Object.keys(allUsersResult).forEach((key) => {
         const orderedUser = copyUsers.find(user => user.username === allUsersResult[key]);
         finalResult.push(orderedUser)
-      })      
-    }
+      })
+    })      
+    // }
     return finalResult;
+
   },[users, mergeSort])
   
   return (
