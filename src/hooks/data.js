@@ -13,8 +13,27 @@ export const data = () => ([
     ],
     "on": false,
     "likes": [
-      "clara",
-      "fernanda"
+      "lucassiqz",
+      "joao",
+    ],
+    "dislikes": [],
+    "matchs": []
+  },
+  {
+    "username": "lucassiqz",
+    "name": "Lucas Siqueira",
+    "bio": null,
+    "avatar": "https://avatars3.githubusercontent.com/u/23382026?s=460&u=59130c4ac2ef3f3902e3c4b75372a2a1acf6de57&v=4",
+    "technologys": [
+      "Python",
+      "Javascript",
+      "Java",
+      "C++",
+      "PHP"
+    ],
+    "on": true,
+    "likes": [
+      "guilherme"
     ],
     "dislikes": [],
     "matchs": []
@@ -32,7 +51,7 @@ export const data = () => ([
       "C++"
     ],
     "on": false,
-    "likes": [],
+    "likes": ["guilherme"],
     "dislikes": [],
     "matchs": []
   }

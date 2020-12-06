@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 980px;
   margin: 0 auto;
-  padding: 50px 0;
-  text-align: center;
+  padding: 30px 0;
 
   h1 {
+    text-align: center;
     color: var(--primary);
     cursor: pointer;
 
@@ -15,12 +15,17 @@ export const Container = styled.div`
     }
   }
 
+  h2 {
+    color: var(--primary);
+    margin-top: 20px;
+  }
+
   ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
 
     li {
       display: flex;
@@ -125,5 +130,4 @@ export const Match = styled.div`
     margin-top: 30px;
     cursor: pointer;
   }
-
 `;
