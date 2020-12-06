@@ -2,19 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useGlobals } from '../../hooks';
-import { Container, Buttons, Empty } from './styles';
+import { 
+  Container, 
+  Buttons, 
+  Empty, 
+  Match } from './styles';
 
 import like from '../../assets/like.svg'
 import dislike from '../../assets/dislike.svg'
+import itsamatch from '../../assets/itsamatch.png'
 
 function Home() {
   const [recommendUsers, setRecommendUsers] = useState([]);
+  const [match, setMatch] = useState(null);
   const { users, setUsers } = useGlobals();
   const history = useHistory();
 
   useEffect(() => {
     let usersCopy = [...users];
     const loggedUser = usersCopy.find((user) => user.on === true); 
+    
     usersCopy = usersCopy.filter((user) => (
       user.on === false &&
       !loggedUser.likes.some((like) => like === user.username) &&
@@ -28,9 +35,18 @@ function Home() {
   const handleLike = (username) => {
     let usersCopy = [...users];
     const loggedIdx = usersCopy.findIndex((user) => user.on === true); 
+    
     usersCopy[loggedIdx] = {
       ...usersCopy[loggedIdx], 
       likes: [...usersCopy[loggedIdx].likes, username]
+    }
+
+    const likedUser = usersCopy.find((user) => user.username === username); 
+
+    const itsAMatch = likedUser.likes.some((like) => usersCopy[loggedIdx].username === like);
+
+    if (itsAMatch) {
+      setMatch(likedUser);
     }
 
     setUsers(usersCopy);
@@ -39,6 +55,7 @@ function Home() {
   const handleDislike = (username) => {
     let usersCopy = [...users];
     const loggedIdx = usersCopy.findIndex((user) => user.on === true); 
+    
     usersCopy[loggedIdx] = {
       ...usersCopy[loggedIdx], 
       dislikes: [...usersCopy[loggedIdx].dislikes, username]
@@ -78,9 +95,21 @@ function Home() {
           </li>
         ))}
         </ul>
-        ) :(
+        ) : (
             <Empty>Acabou :( </Empty>
-        ) }
+        )}
+
+        {
+          match && (
+            <Match>
+              <img src={itsamatch} alt="It's a match" />
+              <img className="avatar" src={match.avatar} alt="avatar" />
+              <strong>{match.name}</strong>
+              <p>{match.bio}</p>
+              <button type="button" onClick={() => setMatch(null)}>Fechar</button>  
+            </Match>
+          )  
+        }
 
     </Container>
   );
