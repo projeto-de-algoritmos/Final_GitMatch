@@ -4,9 +4,9 @@ export const Container = styled.div`
   max-width: 980px;
   margin: 0 auto;
   padding: 30px 0;
+  text-align: center;
 
   h1 {
-    text-align: center;
     color: var(--primary);
     cursor: pointer;
 
@@ -85,7 +85,7 @@ export const Empty = styled.div`
   font-size: 32px;
   color: #999;
   font-weight: bold;
-  margin-top: 300px;
+  margin: 180px auto;
 `;
 
 export const Match = styled.div`
