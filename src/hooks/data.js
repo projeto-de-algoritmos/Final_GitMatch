@@ -13,8 +13,7 @@ export const data = () => ([
     ],
     "on": false,
     "likes": [
-      "lucassiqz",
-      "joao",
+
     ],
     "dislikes": [],
     "matchs": []

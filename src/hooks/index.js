@@ -16,27 +16,27 @@ const GlobalsProvider= ({ children }) => {
     let j = 0
     let temp = []
     let count = a.count + b.count
-    while(i < a.arr.length && j < b.arr.length) {
-      if(a.arr[i] > b.arr[j]) {
-        temp.push(b.arr[j])
+    while(i < a.otherUserArray.length && j < b.otherUserArray.length) {
+      if(a.otherUserArray[i] > b.otherUserArray[j]) {
+        temp.push(b.otherUserArray[j])
         j++
-        count += a.arr.length - i
+        count += a.otherUserArray.length - i
       } else {
-        temp.push(a.arr[i])
+        temp.push(a.otherUserArray[i])
         i++
       }
     }
-    temp = [...temp, ...a.arr.slice(i), ...b.arr.slice(j)]
-    return {arr: temp, count }
+    temp = [...temp, ...a.otherUserArray.slice(i), ...b.otherUserArray.slice(j)]
+    return {otherUserArray: temp, count }
   }
   
   const mergeSort = (obj) => {
-    if(obj.arr.length === 1) {
+    if(obj.otherUserArray.length === 1) {
       return obj
     }
-    let middle = Math.floor(obj.arr.length/2)
-    let left = {arr: obj.arr.slice(0, middle), count: obj.count}
-    let right = {arr: obj.arr.slice(middle), count: obj.count}
+    let middle = Math.floor(obj.otherUserArray.length/2)
+    let left = {otherUserArray: obj.otherUserArray.slice(0, middle), count: obj.count}
+    let right = {otherUserArray: obj.otherUserArray.slice(middle), count: obj.count}
     let result = merge(mergeSort(left), mergeSort(right))
     return result
   }
@@ -63,34 +63,43 @@ const GlobalsProvider= ({ children }) => {
     }
 
     console.log(baseOrder)
-    // 1: "Python"
-    // 2: "Javascript"
-    // 3: "Java"
-    // 4: "C++"
-    // 5: "PHP"
-
     let otherUser;
-    // let otherOrder
+    let otherUserResult;
+    let otherUserArray = [];
 
+    let allUsersResult = {};
+
+    // Cria o array dos outros usuarios de acordo com o array base 
     for (let index = 0; index < users.length; index++) {
+      // Para todo usuario que não for o usuario logado
       if(users[index].username !== currentUser) {
         otherUser = users[index];
-        console.log(otherUser.technologys)
-        // [ "PHP", "Javascript", "Python", "Java", "C++" ]
+        console.log(otherUser.technologys);
+        // Zera o array para cada usuario
+        otherUserArray = [];
+        // Cria o array de acordo com o base
         for (let x = 1; x <= 5; x++) {
           let newOrder = Object.keys(baseOrder).find(key => baseOrder[key] === otherUser.technologys[x-1]);
-          console.log(newOrder);
-          // console.log(mergeSort({newOrder, count: 0}))
+          otherUserArray.push(newOrder)
         }
+        console.log(otherUserArray);
+        otherUserResult = mergeSort({otherUserArray, count: 0});
+        allUsersResult[otherUserResult.count.toString()] = otherUser.username;
+        console.log(allUsersResult);
+        // { 2: "lucassiqz", 5: "joao" }
       }
+
+      let finalResult = [];
+
+      console.log('----------------');
+      Object.keys(allUsersResult).forEach((key, index) => {
+        console.log(users[index].username)
+        console.log(allUsersResult[key])
+        const orderedUser = users.find(user => user.username == allUsersResult[key]);
+        finalResult.push(orderedUser)
+      })
+      return finalResult;
     }
-
-    
-
-    
-
-
-    
   }
   
   return (
