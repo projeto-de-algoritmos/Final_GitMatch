@@ -8,11 +8,12 @@ import { Container } from './styles';
 
 function Login() {
   const [username, setUsername] = useState('');
-  const { users, setUsers } = useGlobals();
+  const { users, setUsers, inversionCounter } = useGlobals();
   const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(JSON.stringify(users, null, 2))
     const userExists = users.find( user => user.username === username);
 
     if (!userExists) return toast.error('Usuário não encontrado!');
@@ -24,13 +25,13 @@ function Login() {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <h1>ProgramMatch</h1>
+        <h1>GitMatch</h1>
         <input
           placeholder="Digite seu usuário do Github"
           value={username}
           onChange={ e => setUsername(e.target.value)}
         />
-        <button type="submit"> Entrar </button>
+        <button onClick={() => inversionCounter({users, count: 0}, username)} type="submit"> Entrar </button>
         <Link to="/signUp">
           Criar conta
         </Link>

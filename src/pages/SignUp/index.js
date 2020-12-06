@@ -28,14 +28,18 @@ function SignUp() {
   const history = useHistory();
 
   const options = [
-    'React',
+    'Javascript',
     'Python',
+    'C++',
+    'Java',
+    'PHP'
   ]
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+
       if (!username) return toast.error('Username não informado!');
 
       const userExists = users.find( user => user.username === username);
@@ -43,6 +47,8 @@ function SignUp() {
       if (userExists) return toast.error('Usuário já cadastrado!');
 
       if (technologys.length === 0) return toast.error('Tecnologias não informadas!')
+
+      if (technologys.length < 5) return toast.error('Selecione todas as tecnologias!')
 
       const response = await api.get(`/${username}`);
       
@@ -71,7 +77,7 @@ function SignUp() {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <h1>ProgramMatch</h1>
+        <h1>GitMatch</h1>
         <Input
           placeholder="Digite seu usuário do Github"
           value={username}
@@ -87,7 +93,7 @@ function SignUp() {
               input={<MInput />}
               renderValue={(selected) => {
                 if (selected.length === 0) {
-                  return <em>Tecnologias Favoritas</em>;
+                  return <em>Selecione as tecnologias em ordem:</em>;
                 }
 
                 return selected.join(', ');
@@ -96,7 +102,7 @@ function SignUp() {
               inputProps={{ 'aria-label': 'Without label' }}
             >
               <MenuItem disabled value="">
-                <em>Tecnologias Favoritas</em>
+                <em>Selecione as tecnologias em ordem: </em>
               </MenuItem>
               {options.map((op) => (
                 <MenuItem key={op} value={op}>

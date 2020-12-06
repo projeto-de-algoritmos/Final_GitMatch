@@ -71,7 +71,7 @@ function Home() {
 
   return (
     <Container>
-      <h1 onClick={handleLogout}>ProgramMatch</h1>
+      <h1 onClick={handleLogout}>GitMatch</h1>
       {recommendUsers.length > 0 ? (
         <ul>
         {recommendUsers.map(user => (
@@ -79,9 +79,10 @@ function Home() {
             <img src={user.avatar} alt={user.name} />
             <footer>
               <strong>{user.name}</strong>
-                <p>
-                  {user.bio}
+                <p>Bio: 
+                   {user.bio}
                 </p>
+                <p>Curte: {user.technologys}</p>
               </footer>
                 
             <Buttons>
@@ -106,6 +107,7 @@ function Home() {
               <img className="avatar" src={match.avatar} alt="avatar" />
               <strong>{match.name}</strong>
               <p>{match.bio}</p>
+              <p>{match.technologys}</p>
               <button type="button" onClick={() => setMatch(null)}>Fechar</button>  
             </Match>
           )  
