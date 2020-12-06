@@ -13,10 +13,10 @@ import dislike from '../../assets/dislike.svg'
 import itsamatch from '../../assets/itsamatch.png'
 
 function Home() {
-  // const [recommendUsers, setRecommendUsers] = useState([]);
+  const [recommendUsers, setRecommendUsers] = useState([]);
   const [bfsResult, setBfsResult] = useState([]);
   const [match, setMatch] = useState(null);
-  const { users, setUsers } = useGlobals();
+  const { users, setUsers, inversionCounter } = useGlobals();
   const history = useHistory();
 
   const cleanData = useCallback(
@@ -84,9 +84,24 @@ function Home() {
       !loggedUser.dislikes.some((dislike) => dislike === user.username) &&
       !loggedUser.matchs.some((match) => match === user.username) 
     ));
-
+    
     setBfsResult(completResult);
   }, [users, bfs])
+
+  useEffect(() => {
+    let usersCopy = [...users];
+    const loggedUser = usersCopy.find((user) => user.on === true);
+    
+    let result = inversionCounter(loggedUser.username);
+
+    result = result.filter((user) => (
+      !loggedUser.likes.some((like) => like === user.username) &&
+      !loggedUser.dislikes.some((dislike) => dislike === user.username) &&
+      !loggedUser.matchs.some((match) => match === user.username) 
+    ));
+
+    setRecommendUsers(result);
+  },[inversionCounter, users]);
 
   const handleLike = (username) => {
     let usersCopy = [...users];
@@ -130,9 +145,9 @@ function Home() {
       <h1 onClick={handleLogout}>GitMatch</h1>
 
       <h2>Com base na suas tecnologias preferidas: </h2>
-      {bfsResult.length > 0 ? (
+      {recommendUsers.length > 0 ? (
         <ul>
-        {bfsResult.map(user => (
+        {recommendUsers.map(user => (
           <li key={user.username}>
             <img src={user.avatar} alt={user.name} />
             <footer>

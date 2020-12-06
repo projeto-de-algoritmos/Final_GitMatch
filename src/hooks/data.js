@@ -12,9 +12,7 @@ export const data = () => ([
       "PHP"
     ],
     "on": false,
-    "likes": [
-
-    ],
+    "likes": [],
     "dislikes": [],
     "matchs": []
   },
@@ -30,10 +28,8 @@ export const data = () => ([
       "C++",
       "PHP"
     ],
-    "on": true,
-    "likes": [
-      "guilherme"
-    ],
+    "on": false,
+    "likes": [],
     "dislikes": [],
     "matchs": []
   },
@@ -50,7 +46,7 @@ export const data = () => ([
       "C++"
     ],
     "on": false,
-    "likes": ["guilherme"],
+    "likes": [],
     "dislikes": [],
     "matchs": []
   }
