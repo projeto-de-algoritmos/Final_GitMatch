@@ -69,6 +69,7 @@ const GlobalsProvider= ({ children }) => {
     let finalResult = [];
 
     // Cria o array dos outros usuarios de acordo com o array base 
+      let aux = 0
       copyUsers.forEach((_, index) => {
       // Para todo usuario que não for o usuario logado
       if(copyUsers[index].username !== currentUser) {
@@ -82,8 +83,8 @@ const GlobalsProvider= ({ children }) => {
         otherUserResult = mergeSort({otherUserArray, count: 0});
 
         if (allUsersResult[`${otherUserResult.count}`]) {
-
-          otherUserResult.count = otherUserResult.count+1
+          aux = aux + 1;
+          otherUserResult.count = otherUserResult.count+aux
         }
         allUsersResult[otherUserResult.count.toString()] = copyUsers[index].username;
       }
