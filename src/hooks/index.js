@@ -84,7 +84,7 @@ const GlobalsProvider= ({ children }) => {
 
         if (allUsersResult[`${otherUserResult.count}`]) {
           aux = aux + 1;
-          otherUserResult.count = otherUserResult.count+aux
+          otherUserResult.count = otherUserResult.count + aux;
         }
         allUsersResult[otherUserResult.count.toString()] = copyUsers[index].username;
       }
@@ -97,7 +97,7 @@ const GlobalsProvider= ({ children }) => {
         finalResult.push(orderedUser)
       })
     })      
-    // }
+
     return finalResult;
 
   },[users, mergeSort])
