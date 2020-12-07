@@ -50,7 +50,7 @@ O projeto não possui banco de dados, as alterações só são mantidas enquanto
 </div>
 
 
-### Página de match 
+### Match 
 <div>
 <img src="./img/match.png" alt="drawing" width="700"/>
 </div>
