@@ -85,7 +85,7 @@ export const Empty = styled.div`
   font-size: 32px;
   color: #999;
   font-weight: bold;
-  margin: 180px auto;
+  margin: 150px auto;
 `;
 
 export const Match = styled.div`
