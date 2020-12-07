@@ -83,8 +83,8 @@ function Home() {
       !loggedUser.likes.some((like) => like === user.username) &&
       !loggedUser.dislikes.some((dislike) => dislike === user.username) &&
       !loggedUser.matchs.some((match) => match === user.username) 
-    )).slice(1,4);
-  
+      )).slice(0,3);
+      
     setBfsResult(completResult);
   }, [users, bfs])
 
@@ -98,7 +98,7 @@ function Home() {
       !loggedUser.likes.some((like) => like === user.username) &&
       !loggedUser.dislikes.some((dislike) => dislike === user.username) &&
       !loggedUser.matchs.some((match) => match === user.username) 
-    )).slice(1,4);;
+    )).slice(0,3);
 
     setRecommendUsers(result);
   },[inversionCounter, users]);
