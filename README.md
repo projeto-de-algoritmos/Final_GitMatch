@@ -87,8 +87,12 @@ Execute o projeto
 ## Uso 
 <p align="justify">
 Ao iniciar a aplicação, você pode escolher utilizar um dos usuários disponíveis, ou registrar um novo usuário. Você começa na página de login. Caso opte por registrar um novo usuário, você deve clicar no link "Criar Conta", abaixo do botão de entrar da página de login, lá você podera inserir um nome associado a um usuário do github e selecionar as tecnologias na ordem que você tem mais afinidade, a ordem que você seleciona cada uma das 5 tecnologias é importante, você deve selecionar aquelas que você tem mais afinidade primeiro e não deve deixar de clicar em nenhuma. Se a criação tiver dado certo, um popup verde vai aparecer comunicando o sucesso da operação.</p>
+
 <p align="justify">
 Após a criação você pode logar e interagir, dando dislike e like as recomendações de usuários pra você, se você der like em um usuário que te deu like, vocês vão ter um match!</p>
+
+<p align="justify">
+Caso queira trocar de usuário logado, você deve clicar na logo "GitMatch" no topo da página para realizar o logout, e realiar o login com outro usuário.</p>
 
 ## Grafo dos usuários
 - O Grafo abaixo é visto a partir do usuário lucassiqz:
