@@ -2,7 +2,7 @@ export const data = () => ([
   {
     "username": "lucassiqz",
     "name": "Lucas Siqueira",
-    "bio": null,
+    "bio": "Software engineering student at University of Brasilia",
     "avatar": "https://avatars3.githubusercontent.com/u/23382026?s=460&u=59130c4ac2ef3f3902e3c4b75372a2a1acf6de57&v=4",
     "technologys": [
       "Javascript",
