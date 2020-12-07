@@ -44,15 +44,11 @@ O projeto não possui banco de dados, as alterações só são mantidas enquanto
 <img src="./img/login.png" alt="drawing" width="700"/>
 </div>
 
-### Página de home: Seção "Com base na suas tecnologias preferidas":
+### Página de home
 <div>
-<img src="./img/home_s1.png" alt="drawing" width="700"/>
+<img src="./img/home.png" alt="drawing" width="700"/>
 </div>
 
-### Página de home: Seção "Com base nos seus likes: ":
-<div>
-<img src="./img/home_s2.png" alt="drawing" width="700"/>
-</div>
 
 ### Página de match 
 <div>
