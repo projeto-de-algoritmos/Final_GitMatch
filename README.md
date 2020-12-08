@@ -64,7 +64,7 @@ O projeto não possui banco de dados, as alterações só são mantidas enquanto
 
 - [React](https://pt-br.reactjs.org/)
 - [Styled-components](https://styled-components.com/)
-- [react-toastify](https://www.npmjs.com/package/react-toastify)
+- [React-toastify](https://www.npmjs.com/package/react-toastify)
 - [Material UI](https://material-ui.com/pt/)
 - [Axios](https://github.com/axios/axios)
 
@@ -95,7 +95,7 @@ Após a criação você pode logar e interagir, dando dislike e like as recomend
 Caso queira trocar de usuário logado, você deve clicar na logo "GitMatch" no topo da página para realizar o logout, e realiar o login com outro usuário.</p>
 
 ## Grafo dos usuários
-- O Grafo abaixo é visto a partir do usuário lucassiqz:
+- O Grafo abaixo é visto a partir do estado inicial do usuário lucassiqz:
 
 <div>
 <img src="./img/graph.png" alt="drawing" width="700"/>
